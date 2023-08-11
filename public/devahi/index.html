@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Devahi Cab Rental Service is Gujarat based Rent-A-Cab service Provider Company. its mission is to provide the world class car rental service across Gujarat with the best quality at such a lowest price.">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <!-- --------------- Font Awesome Link --------------- -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- --------------- bootstrap-css-file --------------- -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- --------------- bootstrap-javascript-file --------------- -->
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <!-- ---------------custom-css-file --------------- -->
+  <link rel="stylesheet" href="css/style.css">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+  <title>Cab Rental Service In Gujarat - Devahi Cab | Taxi Service</title>
+
+  <style>
+    .modal {
+      display: none;
+      /* Hidden by default */
+      position: fixed;
+      /* Stay in place */
+      z-index: 1;
+      /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%;
+      /* Full width */
+      height: 100%;
+      /* Full height */
+      overflow: auto;
+      /* Enable scroll if needed */
+      background-color: rgba(0, 0, 0, 0.5);
+      /* Black background with opacity */
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto;
+      /* 15% from the top and centered */
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      /* Could be more or less, depending on screen size */
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    textarea {
+      width: 100%;
+      height: 100px;
+      margin-bottom: 10px;
+    }
+
+    .btn_custom {
+      cursor: pointer;
+      border-radius: 5px;
+      color: white;
+      text-decoration: none;
+      padding: 10px 5px;
+      background-color: rgb(81, 90, 81);
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-md">
+      <div class="container">
+        <a class="navbar-brand" href="#"><img src="img/car-White.svg"></a>
+        <button class="navbar-toggler " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+          aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <i class="fa-solid fa-bars" style="color: #ffffff;"></i>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <!-- <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5> -->
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 ">
+              <li class="nav-item">
+                <a class="nav-link text-white" aria-current="page" href="#about_section">ABOUT US</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#choose_car_section">CHOOSE CARS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#contact-section">CONTACT US</a>
+              </li>
+            </ul>
+            <div class="call-btn">
+              <i class="fas fa-mobile-alt"></i><a class="btn " type="submit" onclick="makePhoneCall()">
+                <h7 id="mobile"></h7>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!------------------------------------ Banner Section------------------------------------>
+  <section class="banner_section">
+    <div class="banner_img">
+      <div class="container">
+        <div class="banner_info">
+          <h1 class="banner_subtitle">Rent a car</h1>
+          <h1 class="banner_title">at Lowest price...</h1>
+          <div class="banner_btn">
+            <button onclick="wpMessage()"> <a href="#" class=""><i class="fab fa-whatsapp"></i> Enquire Now</a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!------------------------------------ About Us Section------------------------------------>
+  <section class="about_section" id="about_section">
+    <div class="about_info">
+      <div class="about_details">
+        <div class="container">
+          <h3 class="section_subtitle">ABOUT US</h3>
+          <h2 class="about_title"> Welcome to <br> Devahi Cab Rental Service</h2>
+          <p> Devahi Cab Rental Service is Gujarat based Rent-A-Cab service Provider Company.
+            The company has begun the service in the year 2023. Since then its mission is
+            to provide the world class car rental service across Gujarat with the best
+            quality at such a lowest price. We are working with professionalism,
+            productivity, pleasure and punctuality. We provide the service in many major
+            cities of Gujarat like Ahmedabad, Rajkot, Jamnagar, Dwarka, Porbandar, Somnath,
+            Diu, Baroda, Bhuj etc. We provide the service for Airport / Hotel transfer,
+            Local city tour and also for Outstation. We provide all types of vehicles like Sedan cars / SUVs / Luxurious
+            cars
+            / Tempo Traveler / Bus etc… Many Tourists, Corporate Companies, Colleges,
+            Institutions, Exhibitors, are using our service regularly and are satisfied &
+            impressed with the Quality of our service. We look forward to providing the
+            same to you in near future. </p>
+        </div>
+      </div>
+      <div class="about_img pb-5">
+        <div class="container">
+          <img src="img/car.png">
+        </div>
+      </div>
+    </div>
+  </section>
+  <!------------------------------------ Choose Car Section ------------------------------------>
+  <section class="choose_car_section" id="choose_car_section">
+    <div class="container">
+      <div class="section_title">
+        <h1 class="text-white">Choose Your Car</h1>
+      </div>
+      <div class="cars row" id="acontainer"></div>
+    </div>
+    </div>
+  </section>
+  <!------------------------------------  Tempo Traveller Section ------------------------------------>
+  <section class="booking-form-section">
+    <div class="container">
+      <div class="section_title mb-5 text-center">
+        <h2>Book Your Car</h2>
+      </div>
+      <div class="booking-form">
+        <div class="Form">
+          <div class="row col-12 pb-2 m-0">
+            <label class="mb-1 p-0">Pickup Address*</label>
+            <input type="text" required autocomplete="off" placeholder="Enter Location" id="pickupaddress"
+              class="form-control">
+            <span style="color:red;" id="pickupaddspan"></span>
+          </div>
+          <div class="row col-12 pb-2 m-0">
+            <label class="mb-1 p-0">Drop Address*</label>
+            <input type="text" min="1" required autocomplete="off" placeholder="Enter Location" id="dropaddress"
+              class="form-control">
+            <span style="color:red;" id="dropaddspan"></span>
+          </div>
+          <div class="row col-12 pb-2 m-0">
+            <label class="mb-1 p-0">Select Car*</label>
+            <select name="cars" id="cars">
+
+            </select>
+            <span style="color:red;" id="carSpan"></span>
+          </div>
+          <br>
+          <div class="col-12 row pb-2 m-0">
+            <div class="col-6 ps-0">
+              <label class="mb-1">Trip Start Date*</label>
+              <div class="Calender d-flex">
+                <input type="date" autocomplete="off" placeholder="Select Date" id="startdate" class="form-control">
+              </div>
+            </div>
+            <div class="col-6 pe-0">
+              <label class=" mb-1">Trip End Date*</label>
+              <div class="Calender d-flex">
+                <input type="date" id="enddate" data-toggle="datepicker" autocomplete="off" placeholder="Select Date"
+                  id="" class="form-control">
+              </div>
+            </div>
+          </div>
+          <span style="color:red;" id="dateSpan"></span>
+          <div class="row col-12 pb-2 m-0">
+            <label class="mb-1 p-0">No. of Passenger*</label>
+            <input type="number" min="1" required="" autocomplete="off" placeholder="No. of Passenger" id="pasangerno"
+              onkeydown="javascript: return ['Backspace','Delete','ArrowLeft','ArrowRight'].includes(event.code) ? true : !isNaN(Number(event.key)) && event.code!=='Space'"
+              class="form-control">
+            <span style="color:red;" id="passengerspan"></span>
+          </div>
+          <div class="row col-12 pb-2 m-0">
+            <label class="mb-1 p-0">Email (Optional)</label>
+            <input type="email" min="1" required="" autocomplete="off" placeholder="Enter Email" id="email"
+              class="form-control">
+            <span style="color:red;" id="emailspan"></span>
+          </div>
+          <div class="row col-12 pb-2 m-0">
+            <label class="mb-1 p-0">Phone No*</label>
+            <input type="text" min="1" required="" maxlength="10" autocomplete="off" placeholder="Enter Phone"
+              id="phoneno"
+              onkeydown="javascript: return ['Backspace','Delete','ArrowLeft','ArrowRight'].includes(event.code) ? true : !isNaN(Number(event.key)) && event.code!=='Space'"
+              class="form-control">
+            <span style="color:red;" id="phonespan"></span>
+          </div>
+          <div class="row col-12 pb-2 m-0">
+            <label class="mb-1 p-0">Message (Optional)</label>
+            <input type="text" min="1" required="" autocomplete="off" placeholder="Enter Message" id="message"
+              class="form-control">
+          </div>
+          <div class="button-contact text-center row col-12 pb-2 m-0 mt-2">
+            <button class="btn btn-custom " onclick="gteQuote()" value="">
+              Get Instant Quote</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- .........download section............. -->
+
+  <section class="download-section ">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+          <h2 class="devahi-title text-center">Welcome to Devahi Cab Rental Service Application</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-5">
+          <div class="devahi-qrcode">
+            <img src="img/qr.png" alt="">
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="devahi-text">
+            <h2>Download Devahi Cab Rental Service Mobile Application</h2>
+            <p>
+              It's great to hear that you consider the Devahi Cab Rental Service mobile application as the best app for
+              cab rental! A user's positive feedback about an app can be a valuable indicator of its quality and
+              usability. If you find the app to be user-friendly, efficient, and meeting your transportation needs
+              effectively, it reflects well on the company's efforts to provide a top-notch service. the Devahi Cab
+              Rental Service mobile application, it's a good sign that the company is delivering on its mission to
+              provide world-class car rental services in Gujarat. Enjoy your hassle-free travel experiences!
+            </p>
+          </div>
+          <div class="devahi-button d-flex">
+            <!-- <a href="#"><img src="img/apple appstore.png" alt=""></a> -->
+            <a href="#" class="text-decoration-none">
+              <button type="button" class="btn btn-dark btn-lg d-flex">
+                <div class="playstore">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="40px" height="39px"
+                    fill-rule="evenodd" clip-rule="evenodd" baseProfile="basic">
+                    <linearGradient id="jFdG-76_seIEvf-hbjSsaa" x1="1688.489" x2="1685.469" y1="-883.003" y2="-881.443"
+                      gradientTransform="matrix(11.64 0 0 22.55 -19615.32 19904.924)" gradientUnits="userSpaceOnUse">
+                      <stop offset="0" stop-color="#047ed6" />
+                      <stop offset="1" stop-color="#50e6ff" />
+                    </linearGradient>
+                    <path fill="url(#jFdG-76_seIEvf-hbjSsaa)" fill-rule="evenodd"
+                      d="M7.809,4.608c-0.45,0.483-0.708,1.227-0.708,2.194	v34.384c0,0.967,0.258,1.711,0.725,2.177l0.122,0.103L27.214,24.2v-0.433L7.931,4.505L7.809,4.608z"
+                      clip-rule="evenodd" />
+                    <linearGradient id="jFdG-76_seIEvf-hbjSsab" x1="1645.286" x2="1642.929" y1="-897.055" y2="-897.055"
+                      gradientTransform="matrix(9.145 0 0 7.7 -15001.938 6931.316)" gradientUnits="userSpaceOnUse">
+                      <stop offset="0" stop-color="#ffda1c" />
+                      <stop offset="1" stop-color="#feb705" />
+                    </linearGradient>
+                    <path fill="url(#jFdG-76_seIEvf-hbjSsab)" fill-rule="evenodd"
+                      d="M33.623,30.647l-6.426-6.428v-0.45l6.428-6.428	l0.139,0.086l7.603,4.321c2.177,1.227,2.177,3.249,0,4.493l-7.603,4.321C33.762,30.561,33.623,30.647,33.623,30.647z"
+                      clip-rule="evenodd" />
+                    <linearGradient id="jFdG-76_seIEvf-hbjSsac" x1="1722.978" x2="1720.622" y1="-889.412" y2="-886.355"
+                      gradientTransform="matrix(15.02 0 0 11.5775 -25848.943 10324.73)" gradientUnits="userSpaceOnUse">
+                      <stop offset="0" stop-color="#d9414f" />
+                      <stop offset="1" stop-color="#8c193f" />
+                    </linearGradient>
+                    <path fill="url(#jFdG-76_seIEvf-hbjSsac)" fill-rule="evenodd"
+                      d="M33.762,30.561l-6.565-6.567L7.809,43.382	c0.708,0.761,1.9,0.847,3.232,0.103L33.762,30.561"
+                      clip-rule="evenodd" />
+                    <linearGradient id="jFdG-76_seIEvf-hbjSsad" x1="1721.163" x2="1722.215" y1="-891.39" y2="-890.024"
+                      gradientTransform="matrix(15.02 0 0 11.5715 -25848.943 10307.886)" gradientUnits="userSpaceOnUse">
+                      <stop offset="0" stop-color="#33c481" />
+                      <stop offset="1" stop-color="#61e3a7" />
+                    </linearGradient>
+                    <path fill="url(#jFdG-76_seIEvf-hbjSsad)" fill-rule="evenodd"
+                      d="M33.762,17.429L11.041,4.522	c-1.33-0.761-2.524-0.658-3.232,0.103l19.386,19.369L33.762,17.429z"
+                      clip-rule="evenodd" />
+                  </svg>
+                </div>
+                <!-- <div class="btn-text"> -->
+                <p>DOWNLOAD FORM <br /> GOOGEL PLAY STORE </p>
+          </div>
+          </button></a>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+  <!------------contact section--------------- -->
+  <section class="contact-section" id="contact-section">
+    <div class="container">
+      <div class="text-center contact section_title">
+        <h2 class="">Call US for book your dream ride</h2>
+        <a class="contact-number" style="cursor: pointer;"><i class="fa fa-phone"></i>
+          <span>&nbsp;
+            <h7 id="mobilea" onclick="makePhoneCall()"></h7>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+  <!------------------------------------  Footer ------------------------------------>
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-4 col-md-6 col-sm-12">
+          <h3 class="widget-title">Contact Us </h3>
+          <ul class="contact-list">
+            <li><i class="fas fa-phone"></i>
+              <h4 id="contact" onclick="makePhoneCall()" style="cursor: pointer;"></h4>
+            </li></a>
+            <li><i class="far fa-envelope"></i><a href="#" id="appEmail"></li></a>
+          </ul>
+        </div>
+        <div class="col-xl-4 col-md-6 col-sm-12">
+          <h3 class="widget-title">Information</h3>
+          <ul class="contact-list">
+            <li><a href="#about_section">About Us</a></li>
+            <li><a href="#choose_car_section">Choose Cars</a></li>
+            <li><a href="#contact-section">Contact Us</a></li>
+            <li><a href="/privacyPolicy">Privacy Policy</a></li>
+            <li><a href="/termsAndConditions">Terms and Conditions</a></li>
+            <li><a href="#"></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <span id="wpNumber" style="display:none"></span>
+  <div class="copyright">
+    <p>© 2023 Devahi Cab Rental Service. | Developed by <a href="https://9brainz.com/" target="_blank"> 9Brainz </a>
+    </p>
+  </div>
+  <div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div id="popupTextArea"></div>
+    </div>
+  </div>
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+  //for getting mobile no from response
+  axios.get('/giveuserdata')
+    .then((resp) => {
+      //asigning the phone no to id's
+      document.getElementById('mobile').innerHTML = resp.data.data[0].mobile;
+      document.getElementById('mobilea').innerHTML = resp.data.data[0].mobile;
+      document.getElementById('contact').innerHTML = resp.data.data[0].mobile;
+      document.getElementById('appEmail').innerHTML = resp.data.data[0].username;
+    })
+    .catch((e) => {
+      console.log(e)
+    })
+
+  function displayTextPopup(data) {
+    // Show the modal
+
+    if (data.length == 0) {
+      data = 'happy journey'
+    }
+    var modal = document.getElementById("myModal");
+
+    var textarea = document.getElementById("popupTextArea");
+
+    var paragraphs = data.split(".");
+
+    textarea.innerHTML = ""; // Clear previous content
+
+    for (var i = 0; i < paragraphs.length; i++) {
+      var paragraph = paragraphs[i].trim();
+
+      if (paragraph !== "") {
+        var listItem = document.createElement("li");
+        listItem.textContent = paragraph;
+        var bulletList = document.createElement("ul");
+        bulletList.appendChild(listItem);
+        textarea.appendChild(bulletList);
+      }
+    }
+    modal.style.display = "block";
+  }
+  function closeModal() {
+    // Hide the modal
+    var modal = document.getElementById("myModal");
+    modal.style.display = "none";
+  }
+  // Access the textarea and do something with the input when the modal is closed
+  function handleTextAreaInput() {
+    closeModal();
+  }
+  //for min date which is used to select date greather than today
+  const mindate = document.getElementById('startdate');
+  mindate.min = new Date().toISOString().slice(0, 10);
+  //for min date which is used to select date greather than today
+  const startdate = document.getElementById('enddate');
+  startdate.min = new Date().toISOString().slice(0, 10);
+  //asssigning date of today  
+  document.getElementById('startdate').value = new Date().toISOString().slice(0, 10);
+  document.getElementById('enddate').value = new Date().toISOString().slice(0, 10);
+
+  axios.get('/api/data')
+    .then(function (resp) {
+      //assigning data 
+      const data = resp.data.data;
+      //creating a cardcontainer
+      var container = document.getElementById('acontainer');
+      //for creating a html tag
+      var cars = document.getElementById("cars");
+      var myOption = document.createElement("option");
+      myOption.text = ''
+      myOption.value = ''
+      cars.add(myOption);
+      //getting how manyvehicles in db
+      for (var i = 0; i < data.length; i++) {
+        //assinigng an option        
+        var myOption = document.createElement("option");
+        myOption.text = data[i].vehicleName;
+        myOption.value = data[i].vehicleName;
+        cars.add(myOption);
+        //for checking true or fals according to that change value
+        var ac = 'non/ac';
+        var inclusion = ``;
+        var exclusion = ``;
+        var facilities = ``;
+        if (data[i].isAc == true) ac = 'Ac';
+        //creating a imagepath variable
+        const imgpath = '../images/' + data[i].vehicleImage
+
+        inclusion = `<li id="inclusion">Minimum km – ${data[i].inclusion} km/day for full day or Outstation </li>`
+        exclusion = `<li id="exclusion"> Driver Allowance –  ${data[i].exclusion} Rs/day</li>`
+
+        if (data[i].facilities.length > 0) {
+          facilities = `<li id="facilities"> ${data[i].facilities} </li>`
+        }
+        //html section to what print into card
+        var htmlSection = ` 
+             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 ">
+              <div class="car">
+                <div class="car_img">
+                  <img src='${imgpath}'>
+                </div>
+                <div class="car_details">
+                  <h3 class="car_name">${ac} ${data[i].vehicleName}</h3>
+                  <ul class="car_info">
+                    <li id="seatingcap">Seating capacity 0- ${data[i].vehicleCapecity} Passengers</li>
+                   <li id="amount">Rate ${data[i].amount} Rs/Km</li>
+                      ${inclusion}
+                      ${exclusion}
+                      ${facilities} 
+                  </ul>
+                <div class="d-flex justify-content-between">
+                <button onclick="makePhoneCall()" class="car-button border-0 p-2 mb-1"><i class="fa-solid fa-phone pe-2"></i>Call</button>
+                <button onclick="wpMessage()" class="car-button border-0 p-2 mb-1"><i class="fa-brands fa-whatsapp pe-2" ></i>Book Now</button>
+              </div>
+              <button onclick="viewmore(\`${data[i].viewMore}\`)" class="car-other-button col-12 border-0 p-2 mb-1 "><i class="fa-solid fa-eye pe-2" ></i>Other-Deatils</button>
+                </div>    
+              </div>
+            </div>`;
+        container.insertAdjacentHTML('afterbegin', htmlSection);
+        //assigning the html card to cintainer
+      }
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+
+  //for viewMore
+  function viewmore(data) {
+    if (data.trim().length <= 0 || data == 'undefined') {
+      data = 'Happy journey.'
+    }
+    displayTextPopup(data);
+  }
+  //for wp message
+  function wpMessage() {
+    axios.get('/giveuserdata')
+      .then((resp) => {
+        //getting the mobil no
+        var phoneNumber = resp.data.data[0].mobile;
+        var message = resp.data.data[0].wp_message;
+        document.getElementById('wpNumber').innerHTML = phoneNumber;
+        //creating url in which we redirect
+        var url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`
+        // Open the tel: URL in a new window or tab
+        window.open(url);
+      })
+      .catch((e) => {
+        console.log(e)
+      })
+  }
+
+  //  function to get a quote
+  function gteQuote() {
+    //getting value of pickupaddresss
+    const pickupAddress = document.getElementById('pickupaddress').value;
+
+    //checking value of pickupaddresss for null 
+    if (pickupAddress.length == 0) {
+      document.getElementById('pickupaddspan').innerHTML = 'Enter pickup address.';
+      return;
+    }
+    document.getElementById('pickupaddspan').innerHTML = '';
+    //getting value of dropAddress
+    const dropAddress = document.getElementById('dropaddress').value;
+    //checking value of pickupaddresss for null 
+    if (dropAddress.length == 0) {
+      document.getElementById('dropaddspan').innerHTML = 'Enter drop address.'; return;
+    }
+    document.getElementById('dropaddspan').innerHTML = '';
+
+
+    //getting value of selected cars
+    var selectedcar = document.getElementById("cars").value;
+    if (selectedcar.length == 0) {
+      document.getElementById('carSpan').innerHTML = 'Select a car.'; return;
+    }
+    document.getElementById('carSpan').innerHTML = ' ';
+    console.log(selectedcar)
+    //getting value of startDate
+    const startDate = document.getElementById('startdate').value;
+    //checking value of startDate for null
+    if (startDate.length == 0) {
+      document.getElementById('dateSpan').innerHTML = 'Enter startdate.'; return;
+    }
+    document.getElementById('dateSpan').innerHTML = '';
+    //getting value of endDate
+    const endDate = document.getElementById('enddate').value;
+    //checking value of endDate for null
+    if (endDate.length == 0) {
+      document.getElementById('dateSpan').innerHTML = 'Enter endDate'; return;
+    }
+    document.getElementById('dateSpan').innerHTML = '';
+    var date1 = new Date(startDate);
+    var date2 = new Date(endDate);
+    //cheking both date that which is bigger
+    if (date1 > date2) {
+      document.getElementById('dateSpan').innerHTML = 'Select end date bigger than start date or same as start date.'; return;
+    }
+    document.getElementById('dateSpan').innerHTML = '';
+    //getting value of passanger
+
+    const pasangerNo = document.getElementById('pasangerno').value;
+    //checking value of passanger for null
+    if (pasangerNo.length == 0) {
+      document.getElementById('passengerspan').innerHTML = 'Enter Passengers details.'; return;
+    }
+
+    //checking if uer enters floating point value 
+
+    if (pasangerNo.includes('.') || pasangerNo.includes('e')) {
+      document.getElementById('passengerspan').innerHTML = 'Enter pasanger details only in digits.'; return;
+    }
+    document.getElementById('passengerspan').innerHTML = '';
+
+    //checking value of passanger for enter value in positive
+    if (parseInt(pasangerNo) <= 0) { document.getElementById('passengerspan').innerHTML = 'Enter pessanger greater than 0.'; return; }
+
+    //getting value of email
+    var email = document.getElementById('email').value;
+    //checking value of email for null
+    if (email.length == 0) {
+      email = '';
+    }
+    //if user enters email then cheking proper email is enters
+    else {
+      const isemail = /^\S+@\S+\.\S+$/;
+      //cheking user's email
+      if (!isemail.test(email)) {
+        document.getElementById('emailspan').innerHTML = 'Enter valid email.';
+        return;
+      }
+    }
+    document.getElementById('emailspan').innerHTML = '';
+
+    //getting value of phoneno
+    const phoneNo = document.getElementById('phoneno').value;
+    //checking value of phoneNo for null
+    if (phoneNo.length == 0) {
+      document.getElementById('phonespan').innerHTML = 'Enter phone no.'; return;
+    }
+    document.getElementById('phonespan').innerHTML = '';
+    //regex for 10 digits only
+    var phn = /^\d{10}$/
+    //cheking user enter only 10 digit value
+    if (!phn.test(phoneNo)) {
+      document.getElementById('phonespan').innerHTML = 'Enter phone no in 10 digits.'; return;
+    }
+    document.getElementById('phonespan').innerHTML = '';
+    //getting value of message
+    const message = document.getElementById('message').value;
+
+
+    //creating input 
+    var inp = { selectedcar, pickupAddress, dropAddress, startDate, endDate, pasangerNo, email, phoneNo, message }
+    var send = "selected car: " + inp.selectedcar + " ,pickup-Address: " + inp.pickupAddress + "  ,DropAddress: " + inp.dropAddress + "  ,Startdate: " + inp.startDate + "  ,EndDate: " + inp.endDate + "  ,pasangerNo:  " + inp.pasangerNo + "  ,email:  " + inp.email + "  ,phoneNo:  " + inp.phoneNo + "  ,message:  " + inp.message;
+
+    var contactInfo = document.getElementById('mobile').innerHTML;
+
+
+    var url = `https://api.whatsapp.com/send?phone=${contactInfo}&text=${send}`
+    // Open the tel: URL in a new window or tab
+    //for creating a post(query)
+    axios.post('/api/v1/customer/createquiry', inp)
+      .then(function (resp) {
+
+        toastr.options.positionClass = 'toast-top-center';
+        toastr.success(`Enquiry submitted successfully.We\'ll contact you soon.`);
+
+        const requiredFields = document.querySelectorAll("[required]");
+        setTimeout(() => {
+          window.open(url);
+        }, 2500);
+
+        requiredFields.forEach(field => field.value = "");
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  }
+
+  //to make a phone call
+  function makePhoneCall() {
+    var phoneNumber = document.getElementById('mobile').innerHTML;
+    //for creating a tel:url to call
+    var telUrl = "tel:" + phoneNumber;
+    // Open the tel: URL in a new window or tab
+    window.open(telUrl, '_self');
+  }
+</script>
+
+</html>

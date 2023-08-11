@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Add vehicle</title>
+  <!-- Custom fonts for this template-->
+  <link href="../admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="../admin/css/sb-admin-2.min.css" rel="stylesheet">
+
+  <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+    integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+  <style>
+    .add_vehiclebutton {
+      display: flex;
+      justify-content: end;
+      margin: 0px px 15px 0px;
+    }
+
+    .add_vehiclebutton a:hover {
+      background-color: green;
+      color: white;
+      text-decoration: none;
+    }
+
+    .sidebar-brand {
+      flex-direction: column;
+    }
+
+    .sidebar-brand-text {
+      max-width: 192px !important;
+    }
+
+    #adminName {
+      max-width: 182px !important;
+    }
+
+    html,
+
+
+    body {
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 15px;
+    }
+
+    .extra {
+      border: 5px solid #f1f1f1;
+    }
+
+    input[type=text],
+
+    input[type=password] {
+      width: 100%;
+      padding: 16px 8px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    .icon {
+      font-size: 110px;
+      display: flex;
+      justify-content: center;
+      color: #4286f4;
+    }
+
+    button {
+      background-color: #4286f4;
+      color: white;
+      padding: 14px 0;
+      margin: 10px 0;
+      border: none;
+      cursor: grab;
+      width: 48%;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 18;
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+
+    .formcontainer {
+      text-align: center;
+      margin: 24px 50px 12px;
+    }
+
+    .container {
+      padding: 16px 0;
+      text-align: left;
+    }
+
+    span.psw {
+      float: right;
+      padding-top: 0;
+      padding-right: 15px;
+    }
+
+    input#name {
+      width: 100%;
+      height: 40px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+    }
+
+    /* Change styles for span on extra small screens */
+    @media screen and (max-width: 300px) {
+      span.psw {
+        display: block;
+        float: none;
+      }
+    }
+
+    #toast {
+      position: fixed;
+
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #6f3030;
+      color: #855757;
+      padding: 10px 20px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      z-index: 999;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .show {
+      opacity: 1;
+    }
+
+    .hide {
+      display: none;
+    }
+  </style>
+</head>
+
+<body id="page-top">
+  <div id="wrapper">
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center">
+        <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-laugh-wink"></i>
+        </div>
+        <div class="sidebar-brand-text "> <span id="adminName"> </span></div>
+      </a>
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" href="/admin/index">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span></a>
+      </li>
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Interface
+      </div>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="/admin/Vehicle">
+          <i class="fas fa-car-side"></i>
+          <span>Vehicle</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Vehicle</h6>
+
+            <a class="collapse-item" href="/admin/Vehicle">get/edit/deletevehicle</a>
+          </div>
+        </div>
+      </li>
+      <!-- Nav Item - Utilities Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="/admin/getallenquiries">
+          <i class="fa fa-phone"></i>
+          <span>Enquiry</span>
+        </a>
+
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+
+    </ul>
+    <!-- End of Sidebar -->
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+          <!-- Topbar Navbar -->
+          <ul class="navbar-nav ml-auto">
+            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+            <li class="nav-item dropdown no-arrow d-sm-none">
+              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-search fa-fw"></i>
+              </a>
+              <!-- Dropdown - Messages -->
+              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                aria-labelledby="searchDropdown">
+                <form class="form-inline mr-auto w-100 navbar-search">
+                  <div class="input-group">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                      aria-label="Search" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                      <button class="btn btn-primary" type="button">
+                        <i class="fas fa-search fa-sm"></i>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </li>
+
+            <div class="topbar-divider d-none d-sm-block"></div>
+
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small" id="'demo"></span>
+                <img class="img-profile rounded-circle" src="../admin/img/undraw_profile.svg">
+              </a>
+              <!-- Dropdown - User Information -->
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="/admin/editprofile">
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Profile
+                </a>
+
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/admin/logout" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a>
+              </div>
+            </li>
+
+          </ul>
+
+        </nav>
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+          <!-- Content Row -->
+          <div class="row">
+            <!-- Scroll to Top Button-->
+            <a class="scroll-to-top rounded" href="#page-top">
+              <i class="fas fa-angle-up"></i>
+            </a>
+            <h1 id="demo"></h1>
+            <!-- Logout Modal-->
+            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                    <h1 id="'demo"></h1>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="/admin/logout">Logout</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Bootstrap core JavaScript-->
+          <div id="extra">
+            <h1>Add Vehicle</h1>
+            <div class="icon">
+              <i class="fas fa-user-circle"></i>
+            </div>
+            <div class="formcontainer">
+              <div class="container">
+                <label for="uname"><strong>Vehicle Name</strong></label>
+                <input type="text" id="vehicleName" name="vehicleName" placeholder="Vehicle Name">
+                <span id="vehiclenmSpan" style="color: red;"></span><br>
+
+                <br><label for="uname"><strong>Ac/non-ac:</strong></label>
+                <input type="radio" id="ac" name="isAc" value="true" checked>
+                  <label for="html">Ac</label>
+                  <input type="radio" id="non/ac" name="isAc" value="false">
+                  <label for="css">non/ac</label><br>
+
+                <br><label for="uname"><strong>Vehicle capecity</strong></label>
+                <input type="text" id='vehicleCapecity' name="vehicleCapecity" placeholder="Vehicle Capecity">
+                <span id="vehicleCapecitySpan" style="color: red;"></span>
+                <br><label for="uname"><strong>Vehicle Type</strong></label>
+                <input type="text" id='vehicleType' name="vehicleType" placeholder="Vehicle Type">
+                <span id="vehicleTypeSpan" style="color: red;"></span><br>
+                <br><label for="uname"><strong>Is available</strong></label>:
+                <input type="radio" id="ac" name="isAvalable" value="true" checked>
+                  <label for="html">yes</label>
+                  <input type="radio" id="css" name="isAvalable" value="false">
+                  <label for="css">no</label><br><br>
+
+                <label for="uname"><strong>Amount</strong></label>
+                <input type="text" id='amount' name="amount" placeholder="Amount" placeholder="inclusion">
+                <span id="vehicleAmountSpan" style="color: red;"></span><br>
+                <label for="uname"><strong>Inclusion (Minimum km – 250 km/day for full day or Outstation)
+                  </strong></label>
+                <input type="text" id='inclusion' name="inclusion" placeholder="Inclusion"
+                  onkeydown="javascript: return ['Backspace','Delete','ArrowLeft','ArrowRight'].includes(event.code) ? true : !isNaN(Number(event.key)) && event.code!=='Space'"><br>
+
+                <label for="uname"><strong>Exclusion (Driver Allowance – 500 Rs/day)</strong></label>
+                <input type="text" id='exclusion' name="exclusion" placeholder="Exclusion"
+                  onkeydown="javascript: return ['Backspace','Delete','ArrowLeft','ArrowRight'].includes(event.code) ? true : !isNaN(Number(event.key)) && event.code!=='Space'"><br>
+
+                <label for="uname"><strong>Facilities</strong></label>
+                <input type="text" id='facilities' name="facilities" placeholder="Facilities"><br>
+                <br>
+                <label for="image"><strong>Image</strong></label>
+                <input type="file" required id='image' accept=".png, .jpg, .jpeg" name="image"
+                  placeholder="Select image to">
+                <span id="vehicleimgSpan" style="color: red;"></span>
+                <br><br>
+                <label for="viewmore"><strong>View More</strong></label>
+                <textarea style="width:100%;" id='viewMore'></textarea>
+                <br><br>
+
+                <label for="km/day"><strong>Km/Day(APP)</strong></label>
+                <input type="number" id="kmDayLabel"
+                  onkeydown="javascript: return ['Backspace','Delete','ArrowLeft','ArrowRight'].includes(event.code) ? true : !isNaN(Number(event.key)) && event.code!=='Space'" />
+                <span id="kmDaySpan" style="color: red;"></span><br>
+                <button onclick="addVehicle()" style="width: 100%;">Submit
+                </button>
+
+                <h1 id="msg"></h1>
+              </div>
+            </div>
+          </div>
+</body>
+<!-- Bootstrap core JavaScript-->
+<script src="../admin/vendor/jquery/jquery.min.js"></script>
+
+<script src="../admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Core plugin JavaScript-->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="../admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="../admin/js/sb-admin-2.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+
+<script type="text/javascript">
+  //for setting a data for username
+  axios.get('/givedata')
+    .then((response) => {
+
+      //asigning username which comes in response
+      document.getElementById("adminName").innerHTML = response.data.data[0].username
+    })
+    .catch((error) => {
+    })
+
+  //creating a foemdata
+  var formData = new FormData();
+  //funvtion to adds a vehicle
+  async function addVehicle() {
+    //geting a vehicle name
+    var vehicleName = document.getElementById("vehicleName").value;
+
+    if (vehicleName.length == 0) {
+      document.getElementById('vehiclenmSpan').innerHTML = 'Enter vehicle name.'
+      return;
+    }
+    document.getElementById('vehiclenmSpan').innerHTML = '';
+    //geting a isAc
+    var isAc = document.querySelector('input[name="isAc"]:checked').value;
+
+    //geting a vehicleCapecity
+    var vehicleCapecity = document.getElementById("vehicleCapecity").value;
+    if (vehicleCapecity.length == 0 || parseInt(vehicleCapecity) < 0 || isNaN(vehicleCapecity)) {
+      document.getElementById('vehicleCapecitySpan').innerHTML = 'Enter vehicle capecity in digits only.';
+      return;
+    }
+    document.getElementById('vehicleCapecitySpan').innerHTML = '';
+    //geting a vehicleType
+    var vehicleType = document.getElementById("vehicleType").value;
+
+    if (vehicleType.length == 0) {
+      document.getElementById('vehicleTypeSpan').innerHTML = 'Enter vehile type.';
+      return;
+    }
+    document.getElementById('vehicleTypeSpan').innerHTML = '';
+    //geting a isAvalable
+    var isAvalable = document.querySelector('input[name="isAvalable"]:checked').value;
+    //geting a amount
+    var amount = document.getElementById("amount").value;
+
+    if (amount.length == 0 || parseInt(amount) < 0 || isNaN(parseInt(amount))) {
+      document.getElementById('vehicleAmountSpan').innerHTML = 'Enter vehicle amount properley.';
+      return;
+    }
+    document.getElementById('vehicleAmountSpan').innerHTML = '';
+    //geting a inclusion
+    var inclusion = document.getElementById("inclusion").value;
+
+    if (inclusion.length == 0) {
+      inclusion = 250
+    }
+
+    //geting a exclusion
+    var exclusion = document.getElementById("exclusion").value;
+    if (exclusion.length == 0) {
+      exclusion = 500
+    }
+
+    //geting a facilities
+    var facilities = document.getElementById("facilities").value;
+    if (facilities.length == 0) {
+      facilities = ''
+    }
+
+    //gettinjg viewmore
+    var viewMore = document.getElementById('viewMore').value;
+    if (viewMore.length == 0) {
+      viewMore = ''
+    }
+
+    //geting an image
+    var image = document.getElementById("image").files[0];
+    // document.getElementById("image").rest();
+
+    if (image == undefined) {
+      document.getElementById('vehicleimgSpan').innerHTML = 'Select an image.';
+      return;
+    }
+    document.getElementById('vehicleimgSpan').innerHTML = '';
+    var kmDay = document.getElementById("kmDayLabel").value;
+
+    if (parseInt(kmDay) == 0) {
+      document.getElementById('kmDaySpan').innerHTML = 'Please enter km/day bigger than 0.';
+      return;
+    }
+    document.getElementById('kmDaySpan').innerHTML = '';
+
+
+    //appending the data for form data
+    formData.append("vehicleName", vehicleName);
+    formData.append("isAc", isAc);
+    formData.append("vehicleType", vehicleType);
+    formData.append("vehicleCapecity", vehicleCapecity);
+    formData.append("isAvalable", isAvalable);
+    formData.append("amount", amount);
+    formData.append("inclusion", parseInt(inclusion));
+    formData.append("exclusion", parseInt(exclusion));
+    formData.append("facilities", facilities);
+    formData.append("viewMore", viewMore.trim());
+    formData.append("image", image);
+    formData.append("kmDay", kmDay);
+
+    axios.post('/api/v1/vehicle/addvehicle', formData)
+      .then(function (resp) {
+        //checking response
+        if (resp.data.success == false) {
+          document.getElementById("msg").innerHTML = resp.data.message;
+          document.getElementById("image").value = "";
+          setTimeout(() => {
+            location.reload()
+          }, 3000);
+        }
+        else {
+          //location on desired
+          document.getElementById("image").value = "";
+          const message = "Vehicle added successfully.";
+          const redirectUrl = "/admin/Vehicle?message=" + encodeURIComponent(message);
+          window.location.href = redirectUrl;
+        }
+      })
+      .catch(function (error) {
+        // handle error
+        console.log("error" + error.toString());
+      })
+  };
+
+</script>
+
+</html>

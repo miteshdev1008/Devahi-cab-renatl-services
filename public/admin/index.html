@@ -1,0 +1,335 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Dashboard</title>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <!-- Custom fonts for this template-->
+    <link href="../admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="../admin/css/sb-admin-2.min.css" rel="stylesheet">
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+        .add_vehiclebutton {
+            display: flex;
+            justify-content: end;
+            margin: 0px px 15px 0px;
+        }
+
+        .add_vehiclebutton a:hover {
+            background-color: green;
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-laugh-wink"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3" id="Admin-title"></div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="/admin/index">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Interface
+            </div>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/admin/Vehicle">
+                    <i class="fas fa-car-side"></i>
+                    <span>Vehicle</span>
+                </a>
+
+            </li>
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/admin/getallenquiries">
+                    <i class="fa fa-phone"></i>
+                    <span>Enquiry</span>
+                </a>
+
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <!-- Topbar Navbar -->
+
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - User Information -->
+
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small" id="'demo"></span>
+                                <img class="img-profile rounded-circle" src="../admin/img/undraw_profile.svg">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="/admin/editprofile">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/admin/logout" data-toggle="modal"
+                                    data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Content Row -->
+                    <div class="row">
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <a class="nav-link collapsed" href="/admin/Vehicle">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-primary mb-1">
+                                                    Total Vehicle</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                    <h7 id="totalvehicle"></h7>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="col-auto">
+                                            <i class="fas fa-car-side"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <a class="nav-link collapsed" href="/admin/getallenquiries">
+                                                <div class="text-xs font-weight-bold text-success mb-1">
+                                                    Total Enquiry</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                    <h7 id="totalEnquiry"></h7>
+                                                </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fa fa-phone"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Total payment done Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <a class="nav-link collapsed" href="/admin/getallpaidenquiries">
+                                                <div class="text-xs font-weight-bold text-success mb-1">
+                                                    Total Payment verified</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                    <h7 id="paidEnquiry"></h7>
+                                                </div>
+                                                <div class="text-xs font-weight-bold text-success mb-1">
+                                                    Total Amount Received</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                    <h7 id="receivedAmount"></h7>
+                                                </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Content Row -->
+                        <!-- Scroll to Top Button-->
+                        <a class="scroll-to-top rounded" href="#page-top">
+                            <i class="fas fa-angle-up"></i>
+                        </a>
+
+                        <!-- Logout Modal-->
+                        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                        <h1 id="'demo"></h1>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button class="btn btn-secondary" type="button"
+                                            data-dismiss="modal">Cancel</button>
+                                        <a class="btn btn-primary" href="/admin/logout">Logout</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+</body>
+<!-- Bootstrap core JavaScript-->
+<script src="../admin/vendor/jquery/jquery.min.js"></script>
+
+<script src="../admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+<script src="../admin/js/sb-admin-2.min.js"></script>
+<link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script>
+    if (document.cookie.length > 0) {
+    } else {
+        const loginUrl = 'http://192.168.0.128:6800/';
+        window.location.href = loginUrl;
+    }
+
+    // if (document.cookie) {
+    //     console.log("Cookies are present.");
+    // } else {
+    //     const loginUrl = 'http://192.168.0.128:6800/';
+    //     window.location.href = loginUrl;
+    // }
+
+    //for getting message parms which is coming from req.url
+    const urlParams = new URLSearchParams(window.location.search);
+    //if it found message in req.parms then what is reesult given
+    if (urlParams.get("message") != null) {
+        $(document).ready(function () {
+            //toastr message if message is found
+            toastr.options.positionClass = 'toast-top-center';
+            toastr.success(urlParams.get("message") + `.`);
+        });
+        //for clearing req parms in which 
+        const baseURL = window.location.origin + window.location.pathname;//baseeUrl  is used to concat base url+pathname eg(/abc/)
+        history.replaceState({}, document.title, baseURL);//in this { reprersnts nothing/null},document title replace with baseurl
+    }
+
+    //geting a data
+    axios.get('/givedata')
+        .then((response) => {
+
+            //asigning username which comes in response
+            document.getElementById("Admin-title").innerHTML = response.data.data[0].username;
+
+        })
+        .catch((error) => {
+        })
+
+    //for getting all Enquirey
+    axios.get('/api/v1/customer/getallinquiries')
+        .then((response) => {
+            var paidEnquiry = 0
+            var paidEnquirySum = 0;
+            var totalEnquiry = response.data.data.length;
+
+            document.getElementById('totalEnquiry').innerHTML = totalEnquiry;
+
+
+            for (i = 0; i < response.data.data.length; i++) {
+                var data = response.data.data[i];
+
+                const today = new Date();
+                const sevenDaysAgo = new Date(today);
+                sevenDaysAgo.setDate(today.getDate() - 30);
+
+                const sevenDaysAgoDate = moment(sevenDaysAgo).format('YYYY-MM-DD');
+
+                const todaydDate = moment(today).format('YYYY-MM-DD');
+
+                const dateofdata = moment(data.createdAt).format('YYYY-MM-DD')
+
+                if ((dateofdata >= sevenDaysAgoDate) && (dateofdata <= todaydDate) && (data.paymentDone > 0)) {
+                    paidEnquiry++;
+                    paidEnquirySum += data.paymentDone;
+                }
+
+            }
+            document.getElementById('paidEnquiry').innerHTML = paidEnquiry;
+            document.getElementById('receivedAmount').innerHTML = paidEnquirySum;
+        })
+        .catch((error) => {
+        })
+
+    //for getting all vechicle
+    axios.get('/api/data')
+        .then((response) => {
+            var totalVehicle = response.data.data.length;
+
+            document.getElementById('totalvehicle').innerHTML = totalVehicle;
+
+        })
+        .catch((error) => {
+        })
+
+</script>
+
+</html>

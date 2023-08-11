@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Edit Profile</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="../admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="../admin/css/sb-admin-2.min.css" rel="stylesheet">
+
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+    integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+  <style>
+    html,
+    body {
+
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 15px;
+    }
+
+    .extra {
+      border: 5px solid #f1f1f1;
+    }
+
+    input[type=text],
+    input[type=password],
+    input[type=password] {
+      width: 100%;
+      padding: 16px 8px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    .icon {
+      font-size: 110px;
+      display: flex;
+      justify-content: center;
+      color: #4286f4;
+    }
+
+    button {
+      background-color: #4286f4;
+      color: white;
+      padding: 14px 0;
+      margin: 10px 0;
+      border: none;
+      cursor: grab;
+      width: 48%;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 18;
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+
+    .formcontainer {
+      text-align: center;
+      margin: 24px 50px 12px;
+    }
+
+    .container {
+      padding: 16px 0;
+      text-align: left;
+    }
+
+    span.psw {
+      float: right;
+      padding-top: 0;
+      padding-right: 15px;
+    }
+
+    .pass_show {
+      position: relative;
+    }
+
+    .eye_sow {
+      position: absolute;
+      top: 30px;
+      right: 15px;
+    }
+
+    .eye_sowx {
+      position: absolute;
+      top: 30px;
+      right: 15px;
+    }
+
+    /* Change styles for span on extra small screens */
+    @media screen and (max-width: 300px) {
+      span.psw {
+        display: block;
+        float: none;
+      }
+    }
+
+    .add_vehiclebutton {
+      display: flex;
+      justify-content: end;
+      margin-bottom: 15px;
+    }
+
+    .add_vehiclebutton a:hover {
+      background-color: green;
+      color: white;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+
+
+<body id="page-top">
+  <div id="wrapper">
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center">
+        <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-laugh-wink"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">
+          <h7 id="adminName"></h7>
+        </div>
+      </a>
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" href="/admin/index">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span></a>
+      </li>
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Interface
+      </div>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="/admin/Vehicle">
+          <i class="fas fa-car-side"></i>
+          <span>Vehicle</span>
+        </a>
+
+      </li>
+      <!-- Nav Item - Utilities Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="/admin/getallenquiries">
+          <i class="fa fa-phone"></i>
+          <span>Enquiry</span>
+        </a>
+
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+
+    </ul>
+    <!-- End of Sidebar -->
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+          <!-- Topbar Navbar -->
+          <ul class="navbar-nav ml-auto">
+            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+            <li class="nav-item dropdown no-arrow d-sm-none">
+              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-search fa-fw"></i>
+              </a>
+              <!-- Dropdown - Messages -->
+              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                aria-labelledby="searchDropdown">
+                <form class="form-inline mr-auto w-100 navbar-search">
+                  <div class="input-group">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                      aria-label="Search" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                      <button class="btn btn-primary" type="button">
+                        <i class="fas fa-search fa-sm"></i>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </li>
+
+
+
+            <div class="topbar-divider d-none d-sm-block"></div>
+
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small" id="'demo"></span>
+                <img class="img-profile rounded-circle" src="../admin/img/undraw_profile.svg">
+              </a>
+              <!-- Dropdown - User Information -->
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="/admin/editprofile">
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Profile
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="logout" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a>
+              </div>
+            </li>
+          </ul>
+        </nav>
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+          <!-- Content Row -->
+          <div class="row">
+            <!-- Scroll to Top Button-->
+            <a class="scroll-to-top rounded" href="#page-top">
+              <i class="fas fa-angle-up"></i>
+            </a>
+            <h1 id="demo"></h1>
+            <!-- Logout Modal-->
+            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                    <h1 id="'demo"></h1>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="/admin/logout">Logout</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Bootstrap core JavaScript-->
+          <div id="extra">
+            <h1>Edit Profile</h1>
+            <div class="icon">
+              <i class="fas fa-user-circle"></i>
+            </div>
+            <div class="formcontainer">
+              <div class="container">
+                <label for="uname"><strong>Email</strong></label>
+                <input type="text" id='name' name="name" placeholder="Username">
+                <span id="errorSpan" style="color: red;"></span>
+                <br> <label for="mail"><strong>Password</strong></label>
+                <div class="pass_show">
+                  <input type="password" id='newpass' name="newpass" placeholder="Password" va>
+                  <div class="eye_sowx"> <i class="fa fa-eye" id='eye' onclick="passwordToggley()"></i></div>
+                  <input type="password" id='extrapass' name="newpass" placeholder="Password" style="display:none;">
+                </div>
+                <span id="passSpan" style="color: red;"></span>
+                <br> <label for="psw"><strong>Confirm Password</strong></label>
+                <div class="pass_show">
+                  <div>
+                    <input type="password" id='conformpass' name="conformpass" placeholder="Confirm Password">
+                    <div class="eye_sow"><i class="fa fa-eye" id='eye' onclick="passwordToggle()"></i></div>
+                  </div><br>
+                  <label><strong> Contact No </strong></label>
+                  <input type="text" id='mobile' name="name" placeholder="mobilenoo">
+                  <span id="phonSpan" style="color: red;"></span>
+                  <br>
+                  <br>
+                  <label><strong> Whataapp Message </strong></label>
+                  <input type="text" id='wp_message' name="wp_message" placeholder="whats app message here">
+                  <br>
+                  <button onclick="editProfile()">Submit</button>
+                  <h1 id="msg"></h1>
+                </div>
+              </div>
+            </div>
+</body>
+<script src="../admin/vendor/jquery/jquery.min.js"></script>
+
+<script src="../admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Core plugin JavaScript-->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="../admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="../admin/js/sb-admin-2.min.js"></script>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script>
+
+  getdata();
+
+  document.addEventListener('contextmenu', (e) => e.preventDefault());
+
+  function ctrlShiftKey(e, keyCode) {
+    return e.ctrlKey && e.shiftKey && e.keyCode === keyCode.charCodeAt(0);
+  }
+
+  document.onkeydown = (e) => {
+    // Disable F12, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + U
+    if (
+      event.keyCode === 123 ||
+      ctrlShiftKey(e, 'I') ||
+      ctrlShiftKey(e, 'J') ||
+      ctrlShiftKey(e, 'C') ||
+      (e.ctrlKey && e.keyCode === 'U'.charCodeAt(0))
+    )
+      return false;
+  };
+
+  async function editProfile() {
+    var formData = new FormData();
+    let name = document.getElementById("name").value;
+    let newpass = document.getElementById("newpass").value;
+    let conformpass = document.getElementById("conformpass").value;
+    let mobile = document.getElementById("mobile").value;
+    let wp_message = document.getElementById("wp_message").value;
+
+
+    const isEmail = /^\S+@\S+\.\S+$/;
+    //cheking user's email
+    if (!isEmail.test(name)) {
+      document.getElementById('errorSpan').innerHTML = 'Enter valid email.';
+      return;
+    }
+    document.getElementById('errorSpan').innerHTML = '';
+
+
+
+    //checking admin only enter digit value
+    var phn = /^\d{10}$/
+    if (!phn.test(mobile)) {
+      document.getElementById('phonSpan').innerHTML = 'pleases enter phone no in 10 digits'; return;
+    }
+    document.getElementById('phonSpan').innerHTML = '';
+
+    //checking if admin don't put empty in password fields 
+    if (newpass.length > 0 || conformpass.length > 0) {
+      const passcheck = isPassword(newpass);
+      //condition to check password
+
+      if (passcheck != true) { document.getElementById('passSpan').innerHTML = passcheck; return; };
+      document.getElementById('passSpan').innerHTML = '';
+      //if both password is not matched
+      if (newpass != conformpass) {
+        document.getElementById('passSpan').innerHTML = 'both passwqord must be matched';
+        return;
+      }
+      document.getElementById('passSpan').innerHTML = '';
+      var password = newpass;
+    }
+    else {
+      var password = document.getElementById('extrapass').value;
+
+    }
+
+
+    const username = name;
+    let inp = { username, password, mobile, wp_message };
+
+    //updating the profile
+    axios.post('/admin/editprofile', inp)
+      .then(function (resp) {
+        if (resp.data.success == false) {
+          document.getElementById("msg").innerHTML = resp.data.message;
+        }
+        else {
+          const message = "Profile updated successfully.";
+          const redirectUrl = "/admin/index?message=" + encodeURIComponent(message);
+          window.location.href = redirectUrl;
+        }
+      })
+      .catch(function (error) {
+        // handle error
+        console.log("error" + error);
+      })
+  }
+
+  //assining the deta to our field
+  async function getdata() {
+    axios.get('/givedata')
+      .then(function (resp) {
+
+        //asigning the value of username,password,mobile
+        document.getElementById("adminName").innerHTML = resp.data.data[0].username;
+        document.getElementById("name").setAttribute('value', resp.data.data[0].username);
+        document.getElementById('mobile').setAttribute('value', resp.data.data[0].mobile);
+
+        // let newpass = document.getElementById("newpass").setAttribute('value', resp.data.data[0].password);
+        // let conformpass = document.getElementById("conformpass").setAttribute('value', resp.data.data[0].password);
+        let extraPass = document.getElementById("extrapass").setAttribute('value', resp.data.data[0].password);
+
+        document.getElementById("wp_message").setAttribute('value', resp.data.data[0].wp_message);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log("error" + error);
+      })
+  }
+
+  //for checking a password
+  function isPassword(password) {
+    //cheking password length
+    if (password.length <= 7) {
+      return "Enter 8 characters Password.";
+    }
+    //checking the password for digit
+    else if (!/\d/.test(password)) {
+      return "Password must contain at least one numeric digit (0-9).";
+    }
+    //checking the password for uppercase
+    else if (!/[A-Z]/.test(password)) {
+      return "Password must contain at least one uppercase alphabet.";
+    }
+    //cheking the password for special case
+    else if (!/[^a-zA-Z0-9\s]/.test(password)) {
+      return "Password must contain at least one special character.";
+    }
+    //cheking the password for small characters
+    else if (!/[a-z]/.test(password)) {
+      return "Password must contain at least one lowercase alphabet.";
+    }
+    //if  all ok then returns true
+    else {
+      return true;
+    }
+  }
+
+  //for passweord toggle
+  function passwordToggle() {
+    var x = document.getElementById("eye").value;
+    var y = document.getElementById("conformpass");
+    if (y.type === "password") {
+      // x.type = "text";
+      y.type = "text";
+      x.class = 'fa fa-eye-slash';
+    } else {
+      // x.type = "password";
+      y.type = "password";
+      x.class = 'far fa-eye';
+    }
+  }
+  //for passweord toggle
+  function passwordToggley() {
+    var x = document.getElementById("newpass");
+    // var y = document.getElementById("conformpass");
+    if (x.type === "password") {
+      x.type = "text";
+      // y.type = "text";
+    } else {
+      x.type = "password";
+      // y.type = "password";
+    }
+  }
+
+</script>
+
+</html>

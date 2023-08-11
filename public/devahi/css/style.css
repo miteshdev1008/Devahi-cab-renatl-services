@@ -1,0 +1,744 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+* {
+  padding: 0px;
+  margin: 0px;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/* ==========default css========*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: inline-block;
+  width: 100%;
+  margin: 0px !important;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+:hover {
+  transition: all 0.5s ease-in-out;
+}
+
+*:focus {
+  outline: none;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0px;
+  padding: 0px;
+}
+
+.container {
+  max-width: 1140px;
+  padding: 0 15px;
+  margin: 0 auto;
+  display: block;
+}
+
+/* ------------------------------------------------ Heder------------------------------------------------ */
+header {
+  position: absolute;
+  background-color: #00000080;
+  transition: var(--bs-offcanvas-transition);
+  /* position: fixed; */
+  z-index: 11;
+}
+                              
+.navbar-brand img {
+  width: 199px;
+}
+.navbar>.container{
+  align-items: normal;
+}
+.navbar-nav{
+  align-items: center;
+}
+.navbar-toggler-icon{
+    color: #ffff !important;
+}
+ul li a.nav-link:hover {
+  background: #F7941D !important;
+  color: #000 !important;
+  border-radius: 5px;
+}
+
+.call-btn {
+  background: #F7941D !important;
+  border-radius: 5px !important;
+  font-weight: 500 !important;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  padding: 5px 10px !important;
+  margin-left: 5px;
+}
+.call-btn i{
+  color: #fff;
+}
+.offcanvas-body{
+  top: 10px;
+  position: relative;
+ 
+}
+
+/* ------------------------------------------------ Banner Section------------------------------------------------ */
+.banner_section {
+  position: relative;
+}
+
+.banner_img {
+  background-image: url(../img/benner.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 750px;
+  position: relative;
+  background-position: center center;
+}
+
+.banner_info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  /* margin: 0 auto; */
+  color: #fff;
+  position: absolute;
+  top: 80px;
+  left: 36%;
+}
+
+.banner_subtitle {
+  font-size: 61px;
+  font-weight: 400;
+  text-shadow: 0px 1px 0px #999;
+}
+
+.banner_title {
+  font-size: 74px;
+  font-weight: 700;
+  text-shadow: 0px 1px 0px #999;
+}
+
+.banner_btn {
+  margin-top: 12px;
+  animation: blink 2s linear infinite;
+}
+
+.banner_btn a {
+  background: #F7941D;
+  text-decoration: none !important;
+  border-radius: 4px !important;
+  font-weight: 500 !important;
+  padding: 7px 15px !important;
+  box-shadow: 0px 0px 3px #999;
+  color: #212529;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+
+  25% {
+    opacity: .5;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  75% {
+    opacity: .5;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+/* ------------------------------------------------ About Section------------------------------------------------ */
+.about_details {
+  background: #F7941D;
+  padding-top: 40px;
+  padding-bottom: 120px;
+  text-align: center;
+}
+
+.section_subtitle {
+  display: inline;
+  background: #fff;
+  padding: 3px 8px 1px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 14px;
+  box-shadow: 0px 0px 3px #dadada;
+}
+
+.about_title {
+  line-height: 39px;
+  margin: 10px 0px 15px;
+  font-weight: 800;
+  font-size: 37px;
+}
+
+.about_details .container p {
+  letter-spacing: 0.02px;
+  line-height: 22px;
+}
+
+.about_img .container img {
+  margin: -90px 0 auto;
+}
+
+/* ------------------------------------------------ Choose Car Section------------------------------------------------ */
+.choose_car_section {
+  padding: 45px 0px;
+  background: url(../img/backgraoundimg2.png), #000000bf;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  /* opacity: 0.2; */
+}
+
+.choose_car_section .section_title {
+  color: #000 !important;
+}
+
+.section_title {
+  line-height: 39px;
+  margin: 0px 0px 15px;
+  font-weight: 800;
+  font-size: 30px;
+  text-align: center;
+  color: #000;
+}
+
+.car {
+  /* margin-top: 30px; */
+  background-color: #F7941D;
+  padding: 0px !important;
+  border-radius: 10px;
+  box-shadow: 0px 1px 5px #ccc;
+  margin: 10px 0px 20px;
+}
+
+.car:hover .car_img img {
+  transform: scale(105%);
+}
+
+.car_img {
+  /* translate: 10s; */
+  background: #fff;
+  overflow: hidden;
+  height: 208px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px 10px 0px 0;
+}
+
+.car_img img {
+  width: 100%;
+}
+
+.car_details {
+  padding: 20px;
+}
+.car-button{
+  border-radius: 5px;
+  width: 49%;
+  background-color: #ffff;
+  color: #212529;
+}
+.car-other-button{
+  border-radius: 5px;
+  background-color: #ffff;
+  color: #212529;
+}
+.car_name {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.car_info {
+  list-style-type: disc;
+}
+
+ul.car_info li {
+  margin: 10px 0;
+}
+
+/* .................................................download ........................................................ */
+
+.navbar {
+  /* position: fixed; */
+}
+.download-section {
+  padding-top: 100px;
+}
+
+.devahi-title {
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1.15;
+  position: relative;
+  margin-bottom: 50px;
+  padding-bottom: 25px;
+  text-align: center;
+}
+
+/* .download-title::after{
+  bottom: 0;
+  align-items: center;
+    height: 6px;
+    width: 60px;
+    content: "";
+    position: absolute;
+    left: calc(50% - 30px);
+    background-image: url(../img/border.png)
+} */
+.devahi-text {
+  margin-top: 55px;
+  margin-bottom: 50px;
+}
+
+.devahi-text h2 {
+  line-height: 36px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #3B3B3B;
+}
+
+.devahi-text p {
+  font-size: 16px;
+  color: #777777;
+  text-decoration: none !important;
+}
+
+.devahi-button .btn-text:hover {
+  color: #fff;
+}
+
+
+.devahi-button p{
+  text-decoration: none !important;
+  font-size: 12px;
+  top: 7px;
+  position: relative;
+}
+.playstore{
+  position: relative;
+  top: 4px;
+
+}
+/* ------------------------------------------------ Book Your Car  ------------------------------------------------ */
+.booking-form-section {
+  background-color: #f7f7f7;
+  padding: 45px 0;
+}
+
+.booking-form {
+  max-width: 590px;
+  margin: 0px auto;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 25px 25px 10px;
+}
+
+/* .Calender{
+  position: relative;
+}
+.Calender::after{
+  content: "\f073";
+  font-family:"Font Awesome 6 Free";
+  position: absolute;
+  color: red;
+  right:16px;
+  top:6px;
+} */
+.button-contact {
+  position: relative;
+}
+
+.button-contact i {
+  cursor: pointer;
+  position: absolute;
+  top: 12px;
+  right: 75px;
+}
+
+.button-contact input {
+  cursor: pointer;
+}
+
+.btn-custom {
+  background-color: #F7941D;
+}
+
+/* ------contact section-------- */
+.contact-section {
+  background-color: #F7941D;
+  padding: 45px 0;
+}
+
+.contact h2 {
+  font-weight: 500;
+}
+
+.contact-number {
+  background: #fff;
+  color: #333;
+  font-size: 25px;
+  padding: 5px 23px;
+  display: table;
+  margin: 20px auto 0px;
+  border-radius: 35px;
+  font-weight: 600;
+  transition: all 0.5s;
+  text-decoration: none;
+}
+
+#date i {
+  opacity: 0.1;
+}
+
+/* ------------------------------------------------ Footer ------------------------------------------------ */
+.footer {
+  padding: 45px 0px 20px;
+  color: #fff;
+  background: #333;
+  border-top: 5px solid #F7941D;
+}
+
+.widget-title {
+  font-size: 25px;
+}
+
+.widget-title:after {
+  content: '';
+  background: #F7941D;
+  height: 2px;
+  width: 65px;
+  display: block;
+  margin: 3px 0px 20px;
+}
+
+.contact-list {
+  padding-left: 0px !important;
+}
+
+.contact-list li {
+  list-style: none;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: baseline;
+}
+
+.contact-list li i {
+  margin-right: 10px;
+}
+
+.contact-list li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.contact-list li:hover a {
+  color: #F7941D;
+  text-decoration: underline;
+}
+
+.copyright {
+  text-align: center;
+  color: #fff;
+  background: #000;
+  padding: 15px 0px;
+}
+
+.copyright p {
+  margin: 0px !important;
+}
+
+.copyright p a {
+  color: #F7941D;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.copyright p a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.TermsandConditions-title, .PrivacyPolicy-title{
+  padding: 130px 0px 20px 0px ;
+  font-size: 24px;
+  font-weight: 700;
+}
+.TermsandConditions h3, .PrivacyPolicy h3{
+   font-weight: 600;
+}
+
+@media screen and (max-width: 1440px) {
+  .banner_info {
+    left: 30%;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .banner_info {
+    left: 25%;
+  }
+}
+@media screen and (max-width: 1050px) {
+  .banner_info {
+    left: 18%;
+  }
+}
+@media screen and (max-width: 991px) {
+a.text-decoration-none {
+  margin: 0px auto;
+  padding-bottom: 20px;
+}
+}
+@media screen and (max-width: 778px) {
+  .navbar-brand img{
+    width: 140px;
+  }
+  .banner_info{
+    left: 25%;
+  }
+  .banner_subtitle {
+    padding-top: 10px;
+    font-size: 40px;
+  }
+
+  .banner_title {
+    font-size: 48px;
+  }
+  .choose_car_section .container {
+    max-width: 450px !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  li.nav-item {
+    width: 100%;
+}
+  .offcanvas-body .call-btn{
+    /* margin-top: 10px; */
+    margin: 0px;
+    margin-top: 10px;
+  }
+  button.btn-close {
+    background-color: #fff;
+  }
+  
+  .banner_img{
+    height: 400px;
+  }
+
+  .offcanvas {
+    background-color: #00000080;
+  }
+
+  a.nav-link {
+    text-align: center !important;
+  }
+
+  a.nav-link {
+    color: #fff !important;
+  }
+
+  .call-btn {
+    justify-content: center;
+  }
+
+  .navbar-toggler {
+    background-color: transparent;
+    border: none !important;
+  }
+
+  .navbar-toggler:focus {
+    box-shadow: none !important;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .banner_info {
+    left: 10%;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .banner_info{
+    margin: 0px auto;
+  }
+  .banner_info {
+    left: 2%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .banner_info{
+    margin: 0px auto;
+  }
+  .banner_info {
+    left: 4%;
+  }
+}
