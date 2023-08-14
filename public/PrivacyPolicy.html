@@ -148,10 +148,12 @@
     </div>
 </body>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="../env.js"></script>
 <script>
     //to assign all admin contact info
 
-    axios.get('/giveuserdata')
+    const base_url=`${url}:${port}`;
+    axios.get(`${base_url}/giveuserdata`)
         .then((resp) => {
             console.log(resp.data.data[0].mobile)
             //asigning the phone no to id's

@@ -368,6 +368,7 @@
                 <input type="number" id="kmDayLabel"
                   onkeydown="javascript: return ['Backspace','Delete','ArrowLeft','ArrowRight'].includes(event.code) ? true : !isNaN(Number(event.key)) && event.code!=='Space'" />
                 <span id="kmDaySpan" style="color: red;"></span><br>
+
                 <button onclick="addVehicle()" style="width: 100%;">Submit
                 </button>
 
@@ -390,10 +391,13 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+<script src="../env.js"></script>
+<script>
+  const base_url = `${url}:${port}`;
 
-<script type="text/javascript">
+
   //for setting a data for username
-  axios.get('/givedata')
+  axios.get(`${base_url}/givedata`)
     .then((response) => {
 
       //asigning username which comes in response
@@ -406,6 +410,7 @@
   var formData = new FormData();
   //funvtion to adds a vehicle
   async function addVehicle() {
+    console.log("first")
     //geting a vehicle name
     var vehicleName = document.getElementById("vehicleName").value;
 
@@ -484,7 +489,6 @@
     }
     document.getElementById('kmDaySpan').innerHTML = '';
 
-
     //appending the data for form data
     formData.append("vehicleName", vehicleName);
     formData.append("isAc", isAc);
@@ -499,7 +503,8 @@
     formData.append("image", image);
     formData.append("kmDay", kmDay);
 
-    axios.post('/api/v1/vehicle/addvehicle', formData)
+    //api for adding a vechicle
+    axios.post(`${base_url}/api/v1/vehicle/addvehicle`, formData)
       .then(function (resp) {
         //checking response
         if (resp.data.success == false) {

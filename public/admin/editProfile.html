@@ -164,7 +164,6 @@
           <i class="fas fa-car-side"></i>
           <span>Vehicle</span>
         </a>
-
       </li>
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
@@ -326,8 +325,9 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
+<script src="../env.js"></script>
 <script>
+   const base_url=`${url}:${port}`;
 
   getdata();
 
@@ -392,15 +392,12 @@
     }
     else {
       var password = document.getElementById('extrapass').value;
-
     }
-
-
     const username = name;
     let inp = { username, password, mobile, wp_message };
 
     //updating the profile
-    axios.post('/admin/editprofile', inp)
+    axios.post(`${base_url}/admin/editprofile`, inp)
       .then(function (resp) {
         if (resp.data.success == false) {
           document.getElementById("msg").innerHTML = resp.data.message;
@@ -419,7 +416,7 @@
 
   //assining the deta to our field
   async function getdata() {
-    axios.get('/givedata')
+    axios.get(`${base_url}/givedata`)
       .then(function (resp) {
 
         //asigning the value of username,password,mobile

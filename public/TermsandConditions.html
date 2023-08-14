@@ -56,12 +56,10 @@
       </div>
     </nav>
   </header>
-
   <section>
     <div class="container">
       <div class="TermsandConditions">
         <h1 class="TermsandConditions-title">Terms and Conditions of Devahi Cab Rental Service </h1>
-
         <h3>1. Acceptance of Terms</h3>
         <p>By using the services provided by Devahi Cab Rental Service, you agree to comply with and be bound by these
           terms and conditions. If you do not agree to these terms, please do not use our services.</p>
@@ -141,9 +139,10 @@
   </div>
 </body>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="../env.js"></script>
 <script>
-
-  axios.get('/giveuserdata')
+const base_url=`${url}:${port}`;
+  axios.get(`${base_url}/giveuserdata`)
     .then((resp) => {
       console.log(resp.data.data[0].mobile)
       //asigning the phone no to id's

@@ -430,9 +430,10 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+<script src="../env.js"></script>
 <script>
-
-    axios.get('/givedata')
+ const base_url=`${url}:${port}`;
+    axios.get(`${base_url}/givedata`)
         .then((response) => {
 
             //asigning username which comes in response
@@ -529,7 +530,7 @@
 
                 //popup/conform box
                 if (confirm("do you really want to delete?")) {
-                    const url = '/api/v1/customer/deleteinquiries/:' + `${id}`;
+                    const url = `${base_url}/api/v1/customer/deleteinquiries/:` + `${id}`;
 
                     axios.delete(url)
                         .then((response) => {
@@ -558,7 +559,7 @@
         //payment info updating by id
         $('#data-table').on('click', '.paymentUnDone-button', function () {
             var id = $(this).data('id');
-            const url = '/api/v1/customer/updatePaymentStatus/:' + `${id}`;
+            const url = `${base_url}/api/v1/customer/updatePaymentStatus/:` + `${id}`;
             axios.put(url, { status: 0.0 })
                 .then((response) => {
                     dataTable.ajax.reload();
@@ -590,7 +591,7 @@
         document.getElementById('paymentAmountSpan').innerHTML = ''
 
         console.log(amount);
-        const url = '/api/v1/customer/updatePaymentStatus/:' + `${id}`;
+        const url = `${base_url}/api/v1/customer/updatePaymentStatus/:` + `${id}`;
         axios.put(url, { status: parseInt(amount) })
             .then((response) => {
                 console.log(response.data.success == true)

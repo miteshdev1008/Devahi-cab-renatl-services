@@ -76,8 +76,9 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
-
+    <script src="../env.js"></script>
     <script>
+         const base_url=`${url}:${port}`;
         function passToggle() {
             var x = document.getElementById("myInput");
             if (x.type === "password") {
@@ -92,7 +93,7 @@
             let password = document.getElementsByClassName("password")[0].value;
             let inp = { email, password };
 
-            axios.post('/admin/login', inp)
+            axios.post(`${base_url}/admin/login`, inp)
                 .then(function (resp) {
                     if (resp.data.success == false) {
                         document.getElementById("msg").innerHTML = resp.data.message;

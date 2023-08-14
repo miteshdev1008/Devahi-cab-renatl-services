@@ -42,7 +42,9 @@ app.use(exp.static('public/devahi'));
 //for all admin sides path
 const publicpath = path.join(__dirname, 'public/admin');
 //for all user side path
-const newResolution = path.join(__dirname, 'public/devahi');
+const newResolution = path.join(__dirname, 'public');
+
+console.log("abc" + __dirname);
 
 //configure the dootenv
 const port = process.env.PORT;
@@ -197,14 +199,14 @@ app.get('/admin/getallenquiries', isLogin, (req, res) => {
 app.get('/admin/getallpaidenquiries', isLogin, (req, res) => {
     res.sendFile(`${publicpath}/paidEnquireyDetails.html`)
 });
-
+        
 app.get('/privacyPolicy', (req, res) => {
     res.sendFile(`${newResolution}/PrivacyPolicy.html`)
 });
 
 app.get('/termsAndConditions', (req, res) => {
     res.sendFile(`${newResolution}/TermsandConditions.html`)
-})
+});
 
 //default route when nothing is matched 
 app.get('*', (req, res) => {

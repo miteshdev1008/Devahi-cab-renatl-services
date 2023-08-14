@@ -361,7 +361,6 @@
             <li><a href="#contact-section">Contact Us</a></li>
             <li><a href="/privacyPolicy">Privacy Policy</a></li>
             <li><a href="/termsAndConditions">Terms and Conditions</a></li>
-            <li><a href="#"></a></li>
           </ul>
         </div>
       </div>
@@ -379,11 +378,19 @@
       <div id="popupTextArea"></div>
     </div>
   </div>
+  <h5 id="output"></h5>
 </body>
+<!-- <script type="module"  src="../../global.js"></script> -->
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="env.js"></script>
+<script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
 <script>
+  // import {myVariable} from '../../global.js';
+  // console.log(myVariable);
+
+  const base_url = `${url}:${port}`;
   //for getting mobile no from response
-  axios.get('/giveuserdata')
+  axios.get(`${base_url}/giveuserdata`)
     .then((resp) => {
       //asigning the phone no to id's
       document.getElementById('mobile').innerHTML = resp.data.data[0].mobile;
@@ -441,7 +448,7 @@
   document.getElementById('startdate').value = new Date().toISOString().slice(0, 10);
   document.getElementById('enddate').value = new Date().toISOString().slice(0, 10);
 
-  axios.get('/api/data')
+  axios.get(`${base_url}/api/data`)
     .then(function (resp) {
       //assigning data 
       const data = resp.data.data;
@@ -467,7 +474,7 @@
         var facilities = ``;
         if (data[i].isAc == true) ac = 'Ac';
         //creating a imagepath variable
-        const imgpath = '../images/' + data[i].vehicleImage
+        const imgpath = 'images/' + data[i].vehicleImage
 
         inclusion = `<li id="inclusion">Minimum km – ${data[i].inclusion} km/day for full day or Outstation </li>`
         exclusion = `<li id="exclusion"> Driver Allowance –  ${data[i].exclusion} Rs/day</li>`
@@ -517,7 +524,7 @@
   }
   //for wp message
   function wpMessage() {
-    axios.get('/giveuserdata')
+    axios.get(`${base_url}/giveuserdata`)
       .then((resp) => {
         //getting the mobil no
         var phoneNumber = resp.data.data[0].mobile;
@@ -551,7 +558,6 @@
       document.getElementById('dropaddspan').innerHTML = 'Enter drop address.'; return;
     }
     document.getElementById('dropaddspan').innerHTML = '';
-
 
     //getting value of selected cars
     var selectedcar = document.getElementById("cars").value;
@@ -644,7 +650,7 @@
     var url = `https://api.whatsapp.com/send?phone=${contactInfo}&text=${send}`
     // Open the tel: URL in a new window or tab
     //for creating a post(query)
-    axios.post('/api/v1/customer/createquiry', inp)
+    axios.post(`${base_url}/api/v1/customer/createquiry`, inp)
       .then(function (resp) {
 
         toastr.options.positionClass = 'toast-top-center';

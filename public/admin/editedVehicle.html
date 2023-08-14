@@ -371,22 +371,20 @@
 <!-- Bootstrap core JavaScript-->
 <script src="../../admin/vendor/jquery/jquery.min.js"></script>
 
-
 <script src="../../admin/vendor/jquery/jquery.min.js"></script>
-
 
 <!-- Custom scripts for all pages-->
 <script src="../../admin/js/sb-admin-2.min.js"></script>
 
-
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
+<script src="../../env.js"></script>
 
 <script>
+   const base_url=`${url}:${port}`;
   var totalVehicle;
   //geting a data
-  axios.get('/givedata')
+  axios.get(`${base_url}/givedata`)
     .then((response) => {
 
       //asigning username which comes in response
@@ -396,7 +394,7 @@
     })
 
   //for getting how many vechicles we had
-  axios.get('/api/data').then((resp) => {
+  axios.get(`${base_url}/api/data`).then((resp) => {
     totalVehicle = resp.data.data.length;
   })
 
@@ -405,7 +403,7 @@
   var img = document.getElementById('vehicleimage');
 
 
-  axios.post('/getdata', { id })
+  axios.post(`${base_url}/getdata`, { id })
     .then((response) => {
       img.src = `../../images/` + `${response.data.vehicleImage}`;
 
@@ -613,7 +611,7 @@
     }
 
     //link to updating the vechilie
-    const url = '/api/v1/vehicle/updatevehicle/:' + `${id}`;
+    const url = `${base_url}/api/v1/vehicle/updatevehicle/:` + `${id}`;
 
     //updaing the vehcile
     axios.patch(url, send)

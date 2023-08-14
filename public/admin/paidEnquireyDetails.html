@@ -370,7 +370,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="/api/v1/customer/downloadpdf"><button class="btn-success">Download
+                    <a href="/api/v1/customer/downloadpdf" id="btn_downloadPdf"><button class="btn-success">Download
                             Pdf</button>
                     </a>
                     <div class="table-responsive">
@@ -412,9 +412,14 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+<script src="../env.js"></script>
 <script>
+ const base_url=`${url}:${port}`;
+    //for pdf download
+ const btnToPdf=document.getElementById('btn_downloadPdf');
+ btnToPdf.href=`${base_url}/api/v1/customer/downloadpdf`
 
-    axios.get('/givedata')
+    axios.get(`${base_url}/givedata`)
         .then((response) => {
 
             //asigning username which comes in response
